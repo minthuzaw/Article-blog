@@ -10,10 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 //Route::get('/articles', [HomeController::class, 'index'])->name('articles.index');
 
