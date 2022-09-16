@@ -14,7 +14,7 @@
     <div class="container">
         <label for="show" class="close-btn fas fa-times" title="close"></label>
         <div class="text">
-            Login
+            LOGIN
         </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
