@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="shortcut icon" href="{{ asset('images/blog.png') }}">
     <title>{{ config('app.name', 'Blog') }}</title>
 
     <!-- Scripts -->
