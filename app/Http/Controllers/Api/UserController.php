@@ -17,11 +17,26 @@ class UserController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:user',
+            'password' => 'required'
+        ]);
+
+        $user = User::create($attributes);
+        return response()->json([
+            'status' => 200,
+            'data' => $user
+        ]);
+    }
+
     public function destroy(User $user)
     {
         $user->delete();
         return response()->json([
-           'status' => 200
+            'status' => 200
         ]);
     }
 }
