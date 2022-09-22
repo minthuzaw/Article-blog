@@ -32,6 +32,20 @@ class UserController extends Controller
         ]);
     }
 
+    public function update(User $user, Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+        ]);
+
+        $data = $user->update($attributes);
+        return response()->json([
+            'status' => 200,
+            'data' => $data
+        ]);
+    }
+
     public function destroy(User $user)
     {
         $user->delete();
