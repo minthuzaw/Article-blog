@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,5 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 Route::get('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
+Route::resource('/profiles', ProfileController::class);
 Auth::routes();

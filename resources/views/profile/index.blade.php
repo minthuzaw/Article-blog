@@ -12,7 +12,7 @@
                 @endif
                 <div class="card">
                     <div class="card-body text-center">
-                        <img src="{{ $user->profile ? 'images/'.$user->profile : asset('images/user.png') }}"
+                        <img src="{{ $user->profile ? 'images/'.$user->profile : asset('favicon/user.png') }}"
                              class="rounded-circle" alt="Profile image"
                              style="width: 100px;height: 100px">
                         <h1 class="mt-4">{{ $user->name }}</h1>

@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="{{ asset('images/blog.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon/blog.png') }}">
 
     <title>{{ config('app.name', 'Blog') }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
