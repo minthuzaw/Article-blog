@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     /**
-     * Index
+     * Show
      *
      * @group User
      */
