@@ -16,8 +16,33 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $users = User::all();
 
+        return response()->json([
+            'status' => 200,
+            'data' => [
+                'users' => $users,
+            ],
+        ]);
+    }
+
+    /**
+     * Index
+     *
+     * @group User
+     */
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        if (! $user){
+            return response()->json([
+                'status' => 404,
+                'data' => [
+                    'message' => 'User Not Found.',
+                ],
+            ]);
+        }
         return response()->json([
             'status' => 200,
             'data' => [
