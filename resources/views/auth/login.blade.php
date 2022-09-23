@@ -3,6 +3,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ asset('images/blog.png') }}">
+
     <title>{{ config('app.name', 'Blog') }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
