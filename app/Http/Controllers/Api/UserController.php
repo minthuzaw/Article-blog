@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,6 +25,7 @@ class UserController extends Controller
             'email' => 'required|unique:users',
             'password' => 'required'
         ]);
+        $attributes['password'] = Hash::make($request->password);
 
         $user = User::create($attributes);
         return response()->json([
