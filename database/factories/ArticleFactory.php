@@ -15,11 +15,12 @@ class ArticleFactory extends Factory
     public function definition()
     {
         Article::truncate();
+
         return [
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
             'category_id' => rand(1, 5),
-            'user_id' => rand(1, 2)
+            'user_id' => rand(1, 2),
         ];
     }
 }

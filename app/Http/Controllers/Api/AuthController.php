@@ -9,12 +9,23 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    /**
+     * Register
+     *
+     * @group Auth
+     *
+     * @unaunthenticate
+     *
+     * @bodyParam name string required The title of the user. Example: jhon
+     * @bodyParam email string required The title of the user. Example: jhon@email.com
+     * @bodyParam password string required The title of the user. Example: password
+     */
     public function register(Request $request)
     {
         $attributes = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
         $attributes['password'] = bcrypt($request->password);
 
@@ -23,31 +34,57 @@ class AuthController extends Controller
 
         return response()->json([
             'status' => 200,
-            'data' => $user,
-            'token' => $token
+            'data' => [
+                'token' => $token,
+                'user' => $user,
+            ],
         ]);
     }
 
+    /**
+     * Login
+     *
+     * @group Auth
+     *
+     * @unaunthenticate
+     *
+     * @bodyParam email string required The title of the user. Example: jhon@email.com
+     * @bodyParam password string required The title of the user. Example: password
+     */
     public function login(Request $request)
     {
         $attributes = $request->validate([
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         $user = User::where('email', $attributes['email'])->first();
         if ($user) {
             if (Hash::check($attributes['password'], $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['access_token' => $token];
-                return response($response, 200);
+
+                return response()->json([
+                    'status' => 200,
+                    'data' => [
+                        'token' => $token,
+                        'user' => $user,
+                    ],
+                ]);
             } else {
-                $response = ["message" => "Password mismatch"];
-                return response($response, 422);
+                return response()->json([
+                    'status' => 422,
+                    'data' => [
+                        'message' => 'Wrong Credentials',
+                    ],
+                ]);
             }
         } else {
-            $response = ["message" => 'User does not exist'];
-            return response($response, 422);
+            return response()->json([
+                'status' => 422,
+                'data' => [
+                    'message' => 'Wrong Credentials',
+                ],
+            ]);
         }
     }
 }
