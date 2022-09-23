@@ -26,5 +26,5 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 Route::get('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
-Route::resource('/profiles', ProfileController::class);
+Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);
 Auth::routes();

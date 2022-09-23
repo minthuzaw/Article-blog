@@ -15,7 +15,6 @@
                               method="POST">
                             @csrf
                             @method('PUT')
-                            <input type="hidden" value="{{ $user->id }}" name="user_id">
                             <div class="row mb-3">
                                 <label for="name"
                                        class="col-md-2 col-form-label text-md-start">{{ __('Name ') }}</label>

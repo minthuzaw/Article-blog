@@ -26,7 +26,7 @@ class ProfileController extends Controller
     {
         $attributes = $request->validate([
             'name' => 'required',
-            'email' => ['required', 'email', 'unique:users,email,'.$request->user_id],
+            'email' => ['required', 'email', 'unique:users,email,'.$profile->id],
             'phone_no' => 'min:9',
             'profile' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
