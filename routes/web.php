@@ -6,7 +6,6 @@ use App\Http\Controllers\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', function () {
     return redirect('login');
 });
@@ -19,14 +18,11 @@ Route::get('/articles/show/{article}', [ArticleController::class, 'show'])->name
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create')->middleware('auth');
 Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
 
-
 Route::delete('/articles/delete/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
-
 
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
 
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-Route::get('/comments/delete/{comment}', [ CommentController::class, 'destroy' ])->name('comments.destroy');
+Route::get('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
 Auth::routes();
-
