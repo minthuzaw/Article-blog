@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Gate;
 use App\Models\Comment;
+use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +21,7 @@ class CommentController extends Controller
         $comment->comment = $request->comment;
         $comment->article_id = $request->article_id;
         $comment->save();
+
         return back()->with('success', 'You are successfully judgement in this articles!');
     }
 
@@ -30,6 +31,7 @@ class CommentController extends Controller
             return back()->with('error', 'Unauthorized');
         }
         $comment->delete();
+
         return back();
     }
 }

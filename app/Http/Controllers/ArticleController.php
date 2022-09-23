@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'detail']);
@@ -18,6 +17,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::query()->latest()->paginate(5);
+
         return view('articles.index', compact('articles'));
     }
 
@@ -29,6 +29,7 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('articles.create', compact('categories'));
     }
 
@@ -54,6 +55,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
+
         return redirect()->route('articles.index')->with('info', 'Article deleted');
     }
 }

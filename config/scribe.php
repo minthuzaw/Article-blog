@@ -75,6 +75,7 @@ return [
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
+                    'X-Requested-With' => 'XMLHttpRequest',
                 ],
 
                 /*
@@ -138,7 +139,7 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'laravel',
 
     /*
      * Settings for `static` type output.
@@ -211,13 +212,13 @@ return [
         /*
          * Set this to true if any endpoints in your API use authentication.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * Set this to true if your API should be authenticated by default. If so, you must also set `enabled` (above) to true.
          * You can then use @unauthenticated or @authenticated on individual endpoints to change their status from the default.
          */
-        'default' => false,
+        'default' => true,
 
         /*
          * Where is the auth value meant to be sent in a request?
@@ -253,7 +254,7 @@ return [
     /*
      * Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
      */
-    'intro_text' => <<<INTRO
+    'intro_text' => <<<'INTRO'
 This documentation aims to provide all the information you need to work with our API.
 
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -426,5 +427,5 @@ INTRO
      * Tell Scribe which connections should be transacted here.
      * If you only use one db connection, you can leave this as is.
      */
-    'database_connections_to_transact' => [config('database.default')]
+    'database_connections_to_transact' => [config('database.default')],
 ];
