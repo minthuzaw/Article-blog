@@ -46,9 +46,8 @@
         @yield('content')
 
         <button type="button"
-                class="btn btn-primary btn-floating btn-lg float-end"
                 id="btn-back-to-top">
-            <i class="fas fa-arrow-up"></i>
+            <i class="fa-solid fa-angle-up"></i>
         </button>
     </main>
 
