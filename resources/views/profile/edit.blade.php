@@ -5,9 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3>Profile Edit</h3>
-                        <a href="{{ route('profiles.index')}}" class="btn btn-outline-primary btn-sm">Back</a>
+                    <div class="card-header">
+                        <h3 class="m-0 p-2">Profile Edit</h3>
+{{--                        <a href="{{ route('profiles.index')}}" class="btn btn-blue">Back</a>--}}
                     </div>
 
                     <div class="card-body">
@@ -18,7 +18,7 @@
                             <div class="row mb-3">
                                 <label for="name"
                                        class="col-md-2 col-form-label text-md-start">{{ __('Name ') }}</label>
-                                <div class="col-md-9">
+                                <div class="col-md-10">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror" name="name"
                                            value="{{ old('name') ? old('name') : $user->name }}">
@@ -35,7 +35,7 @@
                                 <label for="name"
                                        class="col-md-2 col-form-label text-md-start">{{ __('Email') }}</label>
 
-                                <div class="col-md-9">
+                                <div class="col-md-10">
                                     <input id="name" type="text"
                                            class="form-control @error('email') is-invalid @enderror" name="email"
                                            value="{{ old('email') ? old('email') : $user->email }}">
@@ -51,7 +51,7 @@
                                 <label for="name"
                                        class="col-md-2 col-form-label text-md-start">{{ __('Phone') }}</label>
 
-                                <div class="col-md-9">
+                                <div class="col-md-10">
                                     <input id="name" type="text"
                                            class="form-control" name="phone_no"
                                            value="{{ old('phone_no') ? old('phone_no') : $user->phone_no }}">
@@ -68,7 +68,7 @@
                                 <label for="name"
                                        class="col-md-2 col-form-label text-md-start">{{ __('Profile') }}</label>
 
-                                <div class="col-md-9">
+                                <div class="col-md-10">
                                     <input id="name" type="file"
                                            class="form-control @error('profile') is-invalid @enderror" name="profile"
                                            value="{{ old('profile') ? old('profile') : $user->profile }}">
@@ -83,9 +83,13 @@
 
 
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary" style="margin-right: 35px">
+                                <button type="submit" class="btn btn-green mx-2">
                                     {{ __('Update') }}
                                 </button>
+
+                                <a href="{{ route('profiles.index') }}" class="btn btn-blue">
+                                    Back
+                                </a>
                             </div>
                         </form>
                     </div>

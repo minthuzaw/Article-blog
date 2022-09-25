@@ -46,3 +46,7 @@ a{
     color: #1a1e21;
     font-size: 1.1rem;
 }
+
+a:hover {
+    color: #1a1e21;
+}

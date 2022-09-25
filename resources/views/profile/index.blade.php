@@ -20,7 +20,7 @@
                         <p>{{ $user->phone_no }}</p>
                     </div>
                     <div class="card-footer d-flex justify-content-end">
-                        <a href="{{ route('profiles.edit', $user->id)}}" class="btn btn-outline-warning btn-sm">Edit</a>
+                        <a href="{{ route('profiles.edit', $user->id)}}" class="btn btn-edit">Edit</a>
                     </div>
                 </div>
             </div>

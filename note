@@ -2,8 +2,10 @@ theme color
     #1DC9A1
 
 button color
-
-
+    edit or warning #ffc107
+    blue or primary #4DB2E3
+    green or success  #1DC9A1
+    red or danger #F76E6E
 
 Auth font family
     Arial

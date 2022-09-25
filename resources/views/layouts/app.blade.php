@@ -47,6 +47,7 @@
 
         <button type="button"
                 id="btn-back-to-top">
+{{--            <i class="fa-sharp fa-solid fa-arrow-up"></i>--}}
             <i class="fa-solid fa-angle-up"></i>
         </button>
     </main>
