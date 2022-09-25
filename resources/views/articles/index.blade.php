@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-    <div class="container">
+    <div class="container-fluid pt-4">
         @if(session('info'))
             <div class="alert alert-info alert-dismissible fade show">
                 {{ session('info') }}
@@ -14,7 +14,7 @@
             </div>
         @endif
         @foreach($articles as $article)
-            <div class="card mb-2">
+            <div class="card mb-2 border-0 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }} : {{ $article->id }}</h5>
                     <div class="card-subtitle mb-2 text-muted small">

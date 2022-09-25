@@ -4,7 +4,7 @@
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card border-0 shadow">
                     <div class="card-header">
                         <h3 class="m-0 p-2">Profile Edit</h3>
 {{--                        <a href="{{ route('profiles.index')}}" class="btn btn-blue">Back</a>--}}
