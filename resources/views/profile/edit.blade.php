@@ -87,8 +87,8 @@
                                     {{ __('Update') }}
                                 </button>
 
-                                <a href="{{ route('profiles.index') }}" class="btn btn-blue">
-                                    Back
+                                <a href="{{ route('profiles.index') }}" class="btn btn-red">
+                                    Cancle
                                 </a>
                             </div>
                         </form>

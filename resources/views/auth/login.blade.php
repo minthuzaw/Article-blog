@@ -39,7 +39,7 @@
                                     @enderror
                                 </div>
                                 <div class="forgot-pass my-2 d-flex align-items-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                    <button type="submit" class="btn btn-green btn-lg">Login</button>
 
                                     @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="offset-1">

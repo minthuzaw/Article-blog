@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.main")
 @section("content")
     <div class="container">
         @if(session('success'))
@@ -17,7 +17,7 @@
                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <button class="btn btn-red btn-sm">Delete</button>
                             </form>
                         @endif
                     </div>
@@ -50,7 +50,7 @@
                         @if($comment->user_id === \Illuminate\Support\Facades\Auth::id())
                             <div class="justify-content-end">
                                 <a href="{{ route('comments.destroy', $comment->id) }}"
-                                   class="btn btn-sm btn-danger">Delete</a>
+                                   class="btn btn-sm btn-red">Delete</a>
                             </div>
                         @endif
                     </div>
