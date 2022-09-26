@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::resource('/articles', ArticleController::class)->except(['edit', 'update']);
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::resource('/articles', ArticleController::class)->except(['edit', 'update']);
 
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-Route::delete('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
+    Route::delete('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
-Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);
-Auth::routes();
+    Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);
+
+});
+
+Auth::routes(['verify' => true]);
