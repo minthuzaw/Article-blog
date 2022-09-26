@@ -46,7 +46,9 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ ucfirst(Auth::user()->name) }}
+                            <img src="{{ Auth::user()->profile ? 'images/'.Auth::user()->profile : asset('favicon/user.png') }}"
+                             class="rounded-circle mx-1" alt="Profile image"
+                             style="width: 2rem;height: 2rem"> {{ ucfirst(Auth::user()->name) }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
