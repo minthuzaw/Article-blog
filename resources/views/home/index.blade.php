@@ -15,6 +15,10 @@
     <x-services/>
     <!-- End Service -->
 
+    <!-- Start View Work -->
+    <x-work/>
+    <!-- End View Work -->
+
     <!-- Start Recent Work -->
     <x-recent-work/>
     <!-- End Recent Work -->

@@ -2,6 +2,11 @@ theme color
     #1DC9A1
     #00EB97
 
+footer color
+    #4f4e4e
+
+body color
+    #e7e6e6
 
 button color
     edit or warning #ffc107
