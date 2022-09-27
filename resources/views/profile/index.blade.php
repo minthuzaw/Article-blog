@@ -10,7 +10,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <div class="card border-0 shadow">
+                <div class="card mt-3 border-0 shadow">
                     <div class="card-body text-center">
                         <img src="{{ $user->profile ? 'images/'.$user->profile : asset('favicon/user.png') }}"
                              class="rounded-circle" alt="Profile image"

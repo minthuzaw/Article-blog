@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card border-0 shadow-lg p-3 mb-5 bg-body rounded" style="height: 28rem">
+                <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded" style="height: 28rem">
                     <div class="row d-flex align-content-center my-5">
                         <div class="col-md-6">
                             <img src="{{ asset('logos/login-logo.svg') }}" alt="" width="100%">

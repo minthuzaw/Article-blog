@@ -30,9 +30,9 @@
     background: #4f4e4e;
     padding-top: 3rem;
     padding-bottom: 20px;
-    /*position: absolute;*/
+    position: absolute;
     /*bottom: 0;*/
-    /*width: 100%;*/
+    width: 100%;
 }
 
 #footer a {
@@ -42,7 +42,7 @@
 
 #footer .copyright {
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     opacity: 0.8;
     margin-top: 20px;
 }

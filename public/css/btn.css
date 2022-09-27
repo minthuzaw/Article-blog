@@ -1,10 +1,11 @@
 /*primary*/
-.btn-blue{
+.btn-blue {
     background-color: #4DB2E3;
     color: #ffffff;
     border-color: #52c1f7;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
 }
+
 .btn-blue:hover {
     background-color: #70ccf9 !important;
     color: #ffffff !important;
@@ -49,6 +50,21 @@
 }
 
 .btn-red:hover {
+    background-color: #e34b4b !important;
+    color: #ffffff !important;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 20%);
+}
+
+/*danger*/
+.btn-outline-red {
+    background-color: #ffffff;
+    border-color: #F76E6E;
+    color: #080707;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+.btn-outline-red:hover {
     background-color: #e34b4b !important;
     color: #ffffff !important;
     cursor: pointer;

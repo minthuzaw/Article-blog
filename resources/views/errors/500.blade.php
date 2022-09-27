@@ -25,7 +25,7 @@
 <body>
 <div class="container mt-5 pt-5 error-pages">
     <div class="col-md-6 offset-2">
-        <img src="{{ asset('logos/404.svg') }}" alt="404">
+        <img src="{{ asset('logos/500.svg') }}" alt="404">
     </div>
 
     <div class="text-center my-3">

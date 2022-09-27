@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
+    @yield('css-content')
 </head>
 <body>
 <div id="app">
@@ -41,5 +41,7 @@
 
 </div>
 
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+@stack('js-content')
 </body>
 </html>
