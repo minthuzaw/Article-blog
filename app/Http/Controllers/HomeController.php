@@ -11,12 +11,4 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    public function qr($qr)
-    {
-        $name = Article::where('title', $qr)->first();
-        $name->count += 1;
-        $name->save();
-
-        return redirect()->route('home.index');
-    }
 }

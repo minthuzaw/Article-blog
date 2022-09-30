@@ -6,13 +6,14 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'detail']);
+        //$this->middleware('auth')->except(['index', 'detail']);
     }
 
     public function index()
@@ -46,11 +47,15 @@ class ArticleController extends Controller
         }
         $path = 'qrcodes/';
         $filename = request()->title;
-        $fullpath = $path.$filename.'.svg';
-        if (! file_exists($path)) {
+        $fullpath = $path . $filename . '.png';
+        if (!file_exists($path)) {
             mkdir($path, 0770, true);
         }
-        QrCode::generate(route('qr', request()->title), $fullpath);
+//        $pic = file_get_contents('images/bob-logo.svg');
+//        dd($pic);
+        QrCode::format('png')->size(2000)
+            ->mergeString(file_get_contents('images/bob1.jpg'), .5)
+            ->generate(route('qr', request()->title), $fullpath);
         $article->title = request()->title;
         $article->body = request()->body;
         $article->category_id = request()->category_id;
@@ -63,6 +68,7 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
+
         $article->delete();
 
         return redirect()->route('articles.index')->with('info', 'Article deleted');

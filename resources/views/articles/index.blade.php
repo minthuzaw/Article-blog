@@ -29,7 +29,7 @@
                             </a>
                         </div>
                         <div class="col-md-4">
-                            <img src="{{ asset($article->qr_code) }}" alt="">
+                            <img src="{{ asset($article->qr_code) }}" alt="" width="100" height="100">
                         </div>
                     </div>
 

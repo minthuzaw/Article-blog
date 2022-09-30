@@ -17,10 +17,11 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->integer('category_id');
-            $table->integer('user_id');
+            $table->integer('category_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->string('qr_code')->nullable();
-            $table->integer('count')->default(0);
+            $table->integer('visit_count')->default(0);
+            $table->integer('successful_buy')->default(0);
             $table->timestamps();
         });
     }

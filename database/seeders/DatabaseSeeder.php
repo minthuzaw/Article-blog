@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'bob@gmail.com',
         ]);
 
-        Article::factory()->count(20)->create();
+        //Article::factory()->count(20)->create();
         Category::factory()->count(5)->create();
-        Comment::factory()->count(40)->create();
+        //Comment::factory()->count(40)->create();
     }
 }
