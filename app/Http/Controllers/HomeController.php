@@ -13,7 +13,6 @@ class HomeController extends Controller
 
     public function qr($qr)
     {
-        dd($qr);
         $name = Article::where('title', $qr)->first();
         $name->count += 1;
         $name->save();
