@@ -23,5 +23,5 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/categories', CategoryController::class);
-    Route::apiResource('/articles', ArticleController::class);
+    Route::apiResource('/articles', ArticleController::class, array("as" => "api"));
 });

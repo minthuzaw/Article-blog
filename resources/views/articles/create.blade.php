@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 @section('content')
     <div class="container">
 
@@ -32,6 +32,6 @@
                 </select>
             </div>
             <input type="submit" value="Add Article"
-                   class="btn btn-primary">
+                   class="btn btn-blue">
         </form>
 @endsection
