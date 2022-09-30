@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->integer('category_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->string('qr_code')->nullable();
+            $table->string('unique_name')->nullable()->unique();
             $table->integer('visit_count')->default(0);
             $table->integer('successful_buy')->default(0);
             $table->timestamps();

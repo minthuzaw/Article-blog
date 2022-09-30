@@ -9,7 +9,7 @@ class TicketController extends Controller
 {
     public function qr($qr)
     {
-        $name = Article::where('title', $qr)->firstOrFail();
+        $name = Article::where('unique_name', $qr)->firstOrFail();
         $name->visit_count += 1;
         $name->save();
 

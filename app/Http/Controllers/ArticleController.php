@@ -45,21 +45,25 @@ class ArticleController extends Controller
             return back()->withErrors($validator);
         }
         $path = 'qrcodes/';
-        $filename = request()->title;
+        $title = request()->title;
+        $filename = $title.\Str::random(50);
         $fullpath = $path.$filename.'.png';
         if (! file_exists($path)) {
             mkdir($path, 0770, true);
         }
 //        $pic = file_get_contents('images/bob-logo.svg');
 //        dd($pic);
-        QrCode::format('png')->size(2000)
-            ->mergeString(file_get_contents('images/bob1.jpg'), .5)
-            ->generate(route('qr', request()->title), $fullpath);
+        QrCode::format('png')->size(500)
+            ->mergeString(file_get_contents('images/bob1.jpg'), .4)
+            ->eyeColor(0, 47, 151, 177, 176, 151, 46)
+            ->errorCorrection('H')
+            ->generate(route('qr', $filename), $fullpath);
         $article->title = request()->title;
         $article->body = request()->body;
         $article->category_id = request()->category_id;
         $article->user_id = Auth::id();
         $article->qr_code = $fullpath;
+        $article->unique_name = $filename;
         $article->save();
 
         return redirect()->route('articles.index')->with('success', 'Article created successfully!');

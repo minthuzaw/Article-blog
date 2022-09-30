@@ -77,9 +77,9 @@
             </form>
         @endauth
     </div>
-    <div class="d-flex justify-content-center">
-        <div class="">
-            <img src="{{ asset($article->qr_code) }}" alt="" width="300" height="300">
+    <div class="d-flex justify-content-center bg-success">
+        <div class="mt-4 mb-5">
+            <img src="{{ asset($article->qr_code) }}" alt="" width="200" height="200">
         </div>
     </div>
 @endsection
