@@ -22,7 +22,6 @@ class CreateArticlesTable extends Migration
             $table->string('qr_code')->nullable();
             $table->integer('count')->default(0);
             $table->timestamps();
-
         });
     }
 

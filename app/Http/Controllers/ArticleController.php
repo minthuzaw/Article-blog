@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-
 class ArticleController extends Controller
 {
     public function __construct()
@@ -48,7 +47,7 @@ class ArticleController extends Controller
         $path = 'qrcodes/';
         $filename = request()->title;
         $fullpath = $path.$filename.'.svg';
-        if (!file_exists($path)) {
+        if (! file_exists($path)) {
             mkdir($path, 0770, true);
         }
         QrCode::generate(route('qr', request()->title), $fullpath);
@@ -69,8 +68,9 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')->with('info', 'Article deleted');
     }
 
-    public function qr($qr){
-        $name = Article::where('title',$qr)->first();
+    public function qr($qr)
+    {
+        $name = Article::where('title', $qr)->first();
         $name->count += 1;
         $name->save();
 

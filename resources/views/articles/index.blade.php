@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-    <div class="container">
+    <div class="container mt-3">
         @if(session('info'))
             <div class="alert alert-info alert-dismissible fade show">
                 {{ session('info') }}
