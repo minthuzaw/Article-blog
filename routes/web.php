@@ -18,8 +18,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);
 
-    Route::get('/2y$10$KMfnFfmsOTiehOIbJIyKesxrcvkqpl1aU9vlsqunTLcsgDug/{n}', [ArticleController::class, 'qr'])->name('qr');
-
 });
+
+Route::get('/2y$10$KMfnFfmsOTiehOIbJIyKesxrcvkqpl1aU9vlsqunTLcsgDug/{n}', [ArticleController::class, 'qr'])->name('qr');
 
 Auth::routes(['verify' => true]);

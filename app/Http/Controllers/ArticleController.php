@@ -74,6 +74,6 @@ class ArticleController extends Controller
         $name->count += 1;
         $name->save();
 
-        return redirect()->route('articles.create');
+        return redirect()->route('home.index');
     }
 }
