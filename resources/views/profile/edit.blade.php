@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow">
                     <div class="card-header">
-                        <h3 class="m-0 p-2">Edit Profile</h3>
+                        <h3 class="m-0 p-2 text-center">Edit Profile</h3>
                         {{--                        <a href="{{ route('profiles.index')}}" class="btn btn-blue">Back</a>--}}
                     </div>
 

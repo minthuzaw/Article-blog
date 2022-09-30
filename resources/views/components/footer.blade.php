@@ -1,6 +1,6 @@
-<footer id="footer" class="m-0">
+<div id="footer" class="m-0">
     <div class="container my-0">
-        <div class="row">
+{{--        <div class="row">--}}
             <div class="text-center">
                 <ul class="footer-social-nav d-inline-block p-0">
                     <li>
@@ -15,7 +15,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+{{--        </div>--}}
         <p class="text-center copyright">Copyright © 2022 Blog, Inc. All Rights Reserved.</p>
     </div>
-</footer>
+</div>
