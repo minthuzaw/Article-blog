@@ -25,4 +25,6 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 Route::get('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
+Route::get('/qrcodes/{name}', [ArticleController::class, 'qr'])->name('qr');
+
 Auth::routes();

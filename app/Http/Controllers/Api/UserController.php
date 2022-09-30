@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if (! $user){
+        if (! $user) {
             return response()->json([
                 'status' => 404,
                 'data' => [
@@ -43,6 +43,7 @@ class UserController extends Controller
                 ],
             ]);
         }
+
         return response()->json([
             'status' => 200,
             'data' => [
