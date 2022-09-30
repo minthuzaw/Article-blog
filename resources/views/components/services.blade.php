@@ -1,7 +1,7 @@
 <section class="service-wrapper py-3">
     <div class="container-fluid pb-3">
         <div class="row">
-            <h2 class="h2 text-center col-12 py-5 semi-bold-600">SERVICES</h2>
+            <h2 class="h2 text-center col-12 py-5 semi-bold-600">SERVICE</h2>
             <div class="service-header col-2 col-lg-3 text-end light-300">
                 <i class='bx bx-gift h3 mt-1'></i>
             </div>
