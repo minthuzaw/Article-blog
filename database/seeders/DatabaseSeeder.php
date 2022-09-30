@@ -24,12 +24,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
         User::factory()->create([
-            "name" => "Alice",
-            "email" => "alice@gmail.com",
+            'name' => 'Alice',
+            'email' => 'alice@gmail.com',
         ]);
         User::factory()->create([
-            "name" => "Bob",
-            "email" => "bob@gmail.com",
+            'name' => 'Bob',
+            'email' => 'bob@gmail.com',
         ]);
 
         Article::factory()->count(20)->create();

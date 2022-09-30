@@ -67,13 +67,4 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('info', 'Article deleted');
     }
-
-    public function qr($qr)
-    {
-        $name = Article::where('title', $qr)->first();
-        $name->count += 1;
-        $name->save();
-
-        return redirect()->route('home.index');
-    }
 }
