@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label>Check</label>
-                <input type="checkbox" name="check" value="check">
+                <input type="checkbox" name="checkbox">
             </div>
 
             <input type="submit" value="Buy Tickets"

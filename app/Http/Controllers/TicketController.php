@@ -23,8 +23,8 @@ class TicketController extends Controller
 
     public function check(Request $request)
     {
-        if (isset($request->check)) {
-            $name = Article::where('title', $request->hotel)->firstOrFail();
+        if (isset($request->checkbox)) {
+            $name = Article::where('unique_name', $request->hotel)->firstOrFail();
             $name->successful_buy += 1;
             $name->save();
 
