@@ -77,7 +77,11 @@
             </form>
         @endauth
     </div>
-
+    <div class="d-flex justify-content-center">
+        <div class="">
+            <img src="{{ asset($article->qr_code) }}" alt="" width="300" height="300">
+        </div>
+    </div>
 @endsection
 
 {{--@push('js-content')--}}
