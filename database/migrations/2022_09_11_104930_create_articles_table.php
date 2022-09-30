@@ -19,7 +19,10 @@ class CreateArticlesTable extends Migration
             $table->text('body');
             $table->integer('category_id');
             $table->integer('user_id');
+            $table->string('qr_code')->nullable();
+            $table->integer('count')->default(0);
             $table->timestamps();
+
         });
     }
 

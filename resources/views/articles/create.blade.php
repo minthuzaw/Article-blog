@@ -34,5 +34,4 @@
             <input type="submit" value="Add Article"
                    class="btn btn-blue">
         </form>
-    </div>
 @endsection

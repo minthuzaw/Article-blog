@@ -6,6 +6,8 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class ArticleController extends Controller
 {
@@ -43,10 +45,18 @@ class ArticleController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator);
         }
+        $path = 'qrcodes/';
+        $filename = request()->title;
+        $fullpath = $path.$filename.'.svg';
+        if (!file_exists($path)) {
+            mkdir($path, 0770, true);
+        }
+        QrCode::generate(route('qr', request()->title), $fullpath);
         $article->title = request()->title;
         $article->body = request()->body;
         $article->category_id = request()->category_id;
         $article->user_id = Auth::id();
+        $article->qr_code = $fullpath;
         $article->save();
 
         return redirect()->route('articles.index')->with('success', 'Article created successfully!');
@@ -57,5 +67,13 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect()->route('articles.index')->with('info', 'Article deleted');
+    }
+
+    public function qr($qr){
+        $name = Article::where('title',$qr)->first();
+        $name->count += 1;
+        $name->save();
+
+        return redirect()->route('articles.create');
     }
 }
