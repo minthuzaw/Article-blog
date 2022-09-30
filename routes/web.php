@@ -20,9 +20,8 @@ Route::post('/articles', [ArticleController::class, 'store'])->name('articles.st
 
 Route::delete('/articles/delete/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
-Route::get('products', [ProductController::class, 'index'])->name('products.index');
-
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
 Route::get('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
+Route::get('/2y$10$KMfnFfmsOTiehOIbJIyKesxrcvkqpl1aU9vlsqunTLcsgDug/{n}', [ArticleController::class, 'qr'])->name('qr');
 Auth::routes();
