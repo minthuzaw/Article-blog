@@ -1,20 +1,20 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid login-card">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded" style="height: 28rem">
+            <div class="col-md-8 col-12">
+                <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded">
                     <div class="row d-flex align-content-center my-5">
                         <div class="col-md-6">
                             <img src="{{ asset('logos/login-logo.svg') }}" alt="" width="100%">
 
                             <a href="{{ route('register') }}">Create an account?</a>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-12 mt-2">
                             <h1 class="fw-bold">Sign In</h1>
 
-                            <form method="POST" class="mt-5" action="{{ route('login') }}">
+                            <form method="POST" class="mt-lg-5 mt-3" action="{{ route('login') }}">
                                 @csrf
                                 <div class="data mb-3">
                                     <label>Email</label>
@@ -42,7 +42,7 @@
                                     <button type="submit" class="btn btn-green btn-lg">Login</button>
 
                                     @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}" class="offset-1">
+                                        <a href="{{ route('password.request') }}" class="ms-3">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

@@ -31,13 +31,10 @@
 
     <!--Nav Bar-->
     <x-nav-bar/>
-
-    <main class="pt-4">
+    <main>
         @yield('content')
-
     </main>
 
-    <x-footer/>
 
 </div>
 

@@ -1,6 +1,7 @@
 #btn-back-to-top {
     position: fixed;
     display: none;
+    z-index: 1;
     border-color: transparent;
     background-color: #72f5c4;
     bottom: 40px;

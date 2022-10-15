@@ -1,5 +1,16 @@
 body{
-    font-family: Arial;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.login-card {
+    padding-top: 7.2rem;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+    .login-card {
+        padding-top: 1rem !important;
+    }
 }
 
 /*footer*/
