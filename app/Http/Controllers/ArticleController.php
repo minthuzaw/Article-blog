@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -33,22 +34,11 @@ class ArticleController extends Controller
         return view('articles.create', compact('categories'));
     }
 
-    public function store(Article $article, Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        $validator = validator($request->all(), [
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return back()->withErrors($validator);
-        }
-        $article->title = request()->title;
-        $article->body = request()->body;
-        $article->category_id = request()->category_id;
-        $article->user_id = Auth::id();
-        $article->save();
-
+        $articles = $request->validated();
+        $articles['user_id'] = Auth::id();
+        Article::create($request->validated());
         return redirect()->route('articles.index')->with('success', 'Article created successfully!');
     }
 

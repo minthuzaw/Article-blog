@@ -18,9 +18,9 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('category_id');
-            $table->integer('user_id');
-            $table->string('qr_code')->nullable();
-            $table->integer('count')->default(0);
+            $table->unsignedBigInteger('user_id')->constrained();
+            $table->foreign('user_id')
+              ->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
