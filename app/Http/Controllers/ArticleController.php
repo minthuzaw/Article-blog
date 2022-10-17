@@ -38,7 +38,7 @@ class ArticleController extends Controller
     {
         $articles = $request->validated();
         $articles['user_id'] = Auth::id();
-        Article::create($request->validated());
+        Article::create($articles);
         return redirect()->route('articles.index')->with('success', 'Article created successfully!');
     }
 
