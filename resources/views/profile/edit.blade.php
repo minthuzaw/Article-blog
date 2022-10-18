@@ -6,12 +6,20 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pt-3">
             <div class="col-md-4">
+                @if($errors->any())
+                    <div class="alert alert-warning">
+                        <ol class="m-0">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ol>
+                    </div>
+                @endif
                 <div class="card border-0 shadow">
                     <div class="card-header">
                         <h3 class="m-0 p-2 text-center">Edit Profile</h3>
-                        {{--                        <a href="{{ route('profiles.index')}}" class="btn btn-blue">Back</a>--}}
                     </div>
 
                     <div class="card-body">
@@ -84,6 +92,29 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12 d-flex">
+                                    <label class="form-check-label me-2" for="flexSwitchCheckDefault">Change
+                                        Password</label>
+                                    <div class="form-check form-switch mb-1">
+
+                                        <input class="form-check-input checkbox" type="checkbox"
+                                               id="flexSwitchCheckDefault">
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 col-md-6 col-12 d-none show-password-form">
+                                    <x-form.password name="password" label="Password" important="*" autocomplete="off"/>
+                                    <i class="fa-solid fa-eye pe-2 toggle-eye" id="togglePassword"></i>
+                                </div>
+                                <div class="mb-4 col-md-6 col-12 d-none show-password-form">
+                                    <x-form.password name="password_confirmation" label="Confirm Password"
+                                                     important="*"/>
+                                    <i class="fa-solid fa-eye pe-2 toggle-eye" id="toggleConfirmPassword"></i>
+                                </div>
+
+                            </div>
+
                             <div class="d-grid gap-2 col-12 mx-auto">
                                 <button type="submit" class="btn btn-green">
                                     {{ __('Update') }}
@@ -118,6 +149,50 @@
 
         $("#imageUpload").change(function () {
             readURL(this);
+        });
+
+        $(document).ready(function () {
+            @if($errors->any())
+            $('.show-password-form').attr('class', 'mb-4 col-md-6 show-password-form');
+            @endif
+            $('.checkbox').change(function () {
+                if ($(this).is(':checked')) {
+                    $('.show-password-form').attr('class', 'mb-4 col-md-6 show-password-form');
+                } else {
+                    $('.show-password-form').attr('class', 'mb-4 d-none col-md-6 show-password-form');
+                }
+            })
+        });
+
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+        togglePassword.addEventListener("click", function () {
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            if (type !== "password") {
+                this.classList.remove("fa-eye", "toggle-eye");
+                this.classList.add("fa-eye-slash" , "toggle-eye-slash");
+            } else {
+                this.classList.remove("fa-eye-slash", "toggle-eye-slash");
+                this.classList.add("fa-eye", "toggle-eye");
+            }
+        });
+
+        const toggleConfirmPassword = document.querySelector("#toggleConfirmPassword");
+        const confirm_password = document.querySelector("#password_confirmation");
+
+        toggleConfirmPassword.addEventListener("click", function () {
+            const confirm_type = confirm_password.getAttribute("type") === "password" ? "text" : "password";
+            confirm_password.setAttribute("type", confirm_type);
+
+            if (confirm_type !== "password") {
+                this.classList.remove("fa-eye", "toggle-eye");
+                this.classList.add("fa-eye-slash" , "toggle-eye-slash");
+            } else {
+                this.classList.remove("fa-eye-slash", "toggle-eye-slash");
+                this.classList.add("fa-eye", "toggle-eye");
+            }
         });
     </script>
 @endpush

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -22,21 +24,18 @@ class ProfileController extends Controller
         return view('profile.edit', compact('user'));
     }
 
-    public function update(Request $request, User $profile)
+    public function update(UpdateUserRequest $request, User $profile)
     {
-        $attributes = $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'email', 'unique:users,email,'.$profile->id],
-            'phone_no' => 'min:9',
-            'profile' => 'image|mimes:jpeg,png,jpg,gif',
-        ]);
-
+        $attributes = $request->validated();
+        if ($request->filled('password')) {
+            $attributes['password'] = Hash::make($attributes['password']);
+        } else {
+            unset($attributes['password']);
+        }
         if ($request->file('profile')) {
             $attributes['profile'] = $this->imageSave($request->file('profile'));
         }
-
         $profile->update($attributes);
-
         return redirect()->route('profiles.index')->with('success', 'Profile updated successfully!');
     }
 

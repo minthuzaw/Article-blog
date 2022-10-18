@@ -61,3 +61,35 @@ a{
 a:hover {
     color: #1a1e21;
 }
+
+.login-toggle-eye {
+    margin-left: -25px;
+    margin-top: -25px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    z-index: 2;
+}
+
+/*password edit*/
+.toggle-eye {
+    margin-left: -25px;
+    margin-top: 14px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    z-index: 2;
+}
+.toggle-eye-slash {
+    margin-left: -25px;
+    margin-top: -28px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    z-index: 2;
+}
+
+.form-check-input:checked {
+    background-color: #1DC9A1 !important;
+    border-color: #4f4e4e !important;
+}
