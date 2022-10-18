@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container-fluid login-card">
+    <div class="container-fluid card-padding">
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
                 <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded">
                     <div class="row d-flex align-content-center my-5">
-                        <div class="col-md-6">
+                        <div class="col-md-6 auth-image">
                             <img src="{{ asset('logos/login-logo.svg') }}" alt="" width="100%">
 
                             <a href="{{ route('register') }}">Create an account?</a>

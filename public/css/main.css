@@ -1,10 +1,10 @@
-body{
+body {
     font-family: "Open Sans", sans-serif;
 }
 
 
-.login-card {
-    padding-top: 7.2rem;
+.card-padding {
+    padding-top: 5rem;
 }
 
 @media only screen and (min-width: 300px) and (max-width: 768px) {
@@ -52,7 +52,7 @@ body{
     height: 24px;
 }
 
-a{
+a {
     text-decoration: none;
     color: #1a1e21;
     font-size: 1.1rem;
@@ -80,6 +80,7 @@ a:hover {
     position: relative;
     z-index: 2;
 }
+
 .toggle-eye-slash {
     margin-left: -25px;
     margin-top: -28px;
@@ -92,4 +93,16 @@ a:hover {
 .form-check-input:checked {
     background-color: #1DC9A1 !important;
     border-color: #4f4e4e !important;
+}
+
+/*auth image*/
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .card-padding {
+        padding-top: 0.5rem;
+    }
+
+    .auth-image {
+        display: none;
+    }
 }

@@ -1,4 +1,8 @@
-body{
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
     background-color: #e7e6e6;
 }
 
@@ -9,6 +13,11 @@ body{
     background-color: #1DC9A1 !important;
     border-color: #1DC9A1 !important;
 }
-.page-link{
+
+.page-link {
     color: #1DC9A1 !important;
+}
+
+.bg-green {
+    background-color: #1DC9A1;
 }

@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
             'profile' => 'image|mimes:jpeg,png,jpg,gif',
             'name' => ['required', 'string', 'max:255', 'min:3'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.\Auth::id()],
-            'phone_no' => ['min:9'],
+            'phone_no' => ['min:9', 'nullable'],
             'password' => ['nullable', 'min:6', 'confirmed', 'max:225'],
         ];
     }

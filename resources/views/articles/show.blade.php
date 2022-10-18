@@ -1,13 +1,13 @@
 @extends("layouts.main")
 @section("content")
-    <div class="container">
+    <div class="container mt-3">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <div class="card mb-2">
+        <div class="card mb-2 border-0">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <h5 class="card-title">{{ $article->title }}</h5>
@@ -27,7 +27,7 @@
 
                 <div class="card-subtitle mb-2 text-muted small">
                     {{ $article->created_at->diffForHumans() }}
-                    Category: <b>{{ $article->category->name }}</b>
+                    Category: <span class="badge bg-green">{{ $article->category->name }}</span>
                 </div>
                 <p class="card-text">{{ $article->body }}</p>
 

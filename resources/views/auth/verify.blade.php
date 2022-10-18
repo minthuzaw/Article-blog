@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container-fluid overflow-y-scroll">
+    <div class="container-fluid card-padding overflow-y-scroll">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 @if (session('resent'))
