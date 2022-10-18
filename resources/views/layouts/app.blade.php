@@ -32,18 +32,19 @@
 
     <!--nav-bar-->
     <x-nav-bar/>
+    <div class="container-fluid g-0">
+        <main class="pb-4">
+            @yield('content')
 
-    <main class="pb-4">
-        @yield('content')
+            <button type="button"
+                    id="btn-back-to-top">
+                {{--            <i class="fa-sharp fa-solid fa-arrow-up"></i>--}}
+                <i class="fa-solid fa-angle-up"></i>
+            </button>
+        </main>
 
-        <button type="button"
-                id="btn-back-to-top">
-{{--            <i class="fa-sharp fa-solid fa-arrow-up"></i>--}}
-            <i class="fa-solid fa-angle-up"></i>
-        </button>
-    </main>
-
-    <x-footer/>
+        <x-footer/>
+    </div>
 
 
 </div>
