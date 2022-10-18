@@ -5,19 +5,28 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
                 <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded">
-                    <div class="row d-flex align-content-center my-5">
+                    <div class="row d-flex align-content-center my-lg-5 my-1">
                         <div class="col-md-6 auth-image">
                             <img src="{{ asset('logos/login-logo.svg') }}" alt="" width="100%">
-
-                            <a href="{{ route('register') }}">Create an account?</a>
                         </div>
                         <div class="col-md-6 col-12 mt-2">
-                            <h1 class="fw-bold">Sign In</h1>
+                            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                                <li class="nav-item me-1" role="presentation">
+                                    <a class="nav-link active-auth auth-font" id="tab-login" data-mdb-toggle="pill" href="{{ route('login') }}"
+                                       role="tab"
+                                       aria-controls="pills-login" aria-selected="true">Log in</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link link-hover auth-font text-muted" id="tab-register" data-mdb-toggle="pill" href="{{ route('register') }}"
+                                       role="tab"
+                                       aria-controls="pills-register" aria-selected="false">Sign Up</a>
+                                </li>
+                            </ul>
 
                             <form method="POST" class="mt-lg-5 mt-3" action="{{ route('login') }}">
                                 @csrf
                                 <div class="data mb-3">
-                                    <label>Email</label>
+                                    <label class="mb-2">Email <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('email') is-invalid @enderror"
                                            name="email"
                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -28,7 +37,7 @@
                                     @enderror
                                 </div>
                                 <div class="data mb-3">
-                                    <label>Password</label>
+                                    <label class="mb-2">Password <span class="text-danger">*</span></label>
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror"
                                            name="password" required autocomplete="current-password">
@@ -59,6 +68,17 @@
 @endsection
 @push('js-content')
     <script>
+        const toggleLogin = document.querySelector("#tab-login")
+        const toggleRegister = document.querySelector("#tab-register")
+        toggleRegister.addEventListener("mouseover", function () {
+            toggleLogin.classList.remove("active-auth");
+            toggleLogin.classList.add("text-muted");
+        });
+        toggleRegister.addEventListener("mouseout", function(){
+            toggleLogin.classList.add("active-auth");
+            toggleLogin.classList.remove("text-muted");
+        });
+
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
         togglePassword.addEventListener("click", function () {

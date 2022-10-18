@@ -1,21 +1,35 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container-fluid card-padding">
+    <div class="container-fluid card-padding">
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
                 <div class="card border-0 shadow-lg p-2 mt-3 bg-body rounded">
-                    <div class="row d-flex align-content-center my-5">
+                    <div class="row d-flex align-content-center my-lg-5 my-1">
                         <div class="col-md-6 pt-5 auth-image">
-                            <img src="{{ asset('logos/register-logo.svg') }}" alt="register-image" height="100%" width="100%">
+                            <img src="{{ asset('logos/register-logo.svg') }}" alt="register-image" height="100%"
+                                 width="100%">
                         </div>
                         <div class="col-md-6 col-12">
-                            <h1 class="fw-bold mb-lg-1">Sign Up</h1>
+                            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                                <li class="nav-item me-1" role="presentation">
+                                    <a class="nav-link link-hover auth-font text-muted" id="tab-login"
+                                       data-mdb-toggle="pill" href="{{ route('login') }}"
+                                       role="tab"
+                                       aria-controls="pills-login" aria-selected="true">Log in</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active-auth auth-font" id="tab-register" data-mdb-toggle="pill"
+                                       href="{{ route('register') }}"
+                                       role="tab"
+                                       aria-controls="pills-register" aria-selected="false">Sign up</a>
+                                </li>
+                            </ul>
 
                             <form method="POST" class="mt-lg-5" action="{{ route('register') }}">
                                 @csrf
                                 <div class="data mb-3">
-                                    <label>Name</label>
+                                    <label class="mb-2">Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
                                            name="name"
                                            value="{{ old('name') }}" autocomplete="name" autofocus>
@@ -26,7 +40,7 @@
                                     @enderror
                                 </div>
                                 <div class="data mb-3">
-                                    <label>Email</label>
+                                    <label class="mb-2">Email <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control @error('email') is-invalid @enderror"
                                            name="email"
                                            value="{{ old('email') }}" autocomplete="email" autofocus>
@@ -38,7 +52,7 @@
                                 </div>
 
                                 <div class="data mb-3">
-                                    <label>Password</label>
+                                    <label class="mb-2">Password <span class="text-danger">*</span></label>
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror"
                                            name="password" autocomplete="current-password">
@@ -50,7 +64,8 @@
                                     @enderror
                                 </div>
                                 <div class="data mb-3">
-                                    <label for="password_confirmation">Confirm Password</label>
+                                    <label class="mb-2" for="password_confirmation">Confirm Password <span
+                                            class="text-danger">*</span></label>
                                     <input id="password_confirmation" type="password"
                                            class="form-control @error('password') is-invalid @enderror"
                                            name="password_confirmation" autocomplete="new-password">
@@ -62,11 +77,7 @@
                                     @enderror
                                 </div>
                                 <div class="forgot-pass my-2 d-flex align-items-center">
-                                    <button type="submit" class="btn btn-green btn-lg">Register</button>
-
-                                    <a href="{{ route('login') }}" class="ms-3">
-                                            {{ __('Already a member?') }}
-                                        </a>
+                                    <button type="submit" class="btn btn-green btn-lg">Sign Up</button>
                                 </div>
 
                             </form>
@@ -79,6 +90,17 @@
 @endsection
 @push('js-content')
     <script>
+        const toggleLogin = document.querySelector("#tab-login")
+        const toggleRegister = document.querySelector("#tab-register")
+        toggleLogin.addEventListener("mouseover", function () {
+            toggleRegister.classList.remove("active-auth");
+            toggleRegister.classList.add("text-muted");
+        });
+        toggleLogin.addEventListener("mouseout", function(){
+            toggleRegister.classList.add("active-auth");
+            toggleRegister.classList.remove("text-muted");
+        });
+
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
         togglePassword.addEventListener("click", function () {

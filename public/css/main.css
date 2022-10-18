@@ -1,11 +1,12 @@
-body {
+* {
     font-family: "Open Sans", sans-serif;
 }
 
 
 .card-padding {
-    padding-top: 5rem;
+    padding-top: 3.5rem;
 }
+
 
 @media only screen and (min-width: 300px) and (max-width: 768px) {
     .login-card {
@@ -105,4 +106,27 @@ a:hover {
     .auth-image {
         display: none;
     }
+}
+
+.auth-font {
+    font-size: 1.2rem;
+}
+
+.active-auth {
+    background-color: #1DC9A1 !important;
+    color: #ffffff;
+}
+
+.active-auth:hover {
+    background-color: #4f4e4e !important;
+    color: #ffffff;
+}
+
+.link-hover {
+    border-radius: 0.375rem;
+}
+.link-hover:hover {
+    border-radius: 0.375rem;
+    background-color: #1DC9A1 !important;
+    color: #ffffff !important;
 }
