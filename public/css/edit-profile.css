@@ -10,9 +10,9 @@
 
 .avatar-upload .avatar-edit {
     position: absolute;
-    right: 12px;
+    right: 10px;
     z-index: 1;
-    top: 10px;
+    top: 12px;
 }
 
 .avatar-upload .avatar-edit input {
@@ -25,7 +25,7 @@
     height: 30px;
     margin-bottom: 0;
     border-radius: 100%;
-    background: #595656;
+    background: #1DC9A1;
     border: 1px solid transparent;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     cursor: pointer;
@@ -39,8 +39,8 @@
 }
 
 .avatar-upload .avatar-edit input + label:after {
-    content: "\f044";
-    font-family: 'FontAwesome';
+    content: "\f030";
+    font-family: 'FontAwesome', sans-serif;
     color: #fff;
     position: absolute;
     top: 3px;
@@ -55,8 +55,8 @@
     height: 130px;
     position: relative;
     border-radius: 100%;
-    border: 1px solid #cb0909;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .avatar-upload .avatar-preview > div {
