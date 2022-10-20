@@ -17,10 +17,12 @@
                              style="width: 100px;height: 100px">
                         <h1 class="mt-4">{{ ucfirst($user->name) }}</h1>
                         <h4 class="my-3">{{ $user->email }}</h4>
-                        <p>{{ $user->phone_no }}</p>
-                    </div>
-                    <div class="card-footer d-flex justify-content-end">
-                        <a href="{{ route('profiles.edit', $user->id)}}" class="btn btn-edit">Edit</a>
+                        <p class="m-0">{{ $user->phone_no }}</p>
+
+                        <a href="{{ route('profiles.edit', $user->id)}}" class="btn text-warning">
+                            <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                        </a>
+
                     </div>
                 </div>
             </div>

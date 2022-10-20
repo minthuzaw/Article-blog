@@ -18,7 +18,7 @@
                     </div>
                 @endif
                 <div class="card border-0 shadow">
-                    <div class="card-header">
+                    <div class="card-header border-0 text-white">
                         <h3 class="m-0 p-2 text-center">Edit Profile</h3>
                     </div>
 
