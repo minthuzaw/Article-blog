@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="avatar-preview">
                                         <div id="imagePreview"
-                                             style="background-image: url({{ $user->profile ? config('app.url').'/images/'.$user->profile : asset('favicon/user.png') }});">
+                                             style="background-image: url({{ $user->profile ? config('app.url').'/images/'.$user->profile : asset('favicon/user.png') }}); object-fit: fill;">
                                         </div>
                                     </div>
                                 </div>

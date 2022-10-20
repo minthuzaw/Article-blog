@@ -52,16 +52,16 @@
                                 style="width: 2rem;height: 2rem"> {{ ucfirst(Auth::user()->name) }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="navbarDropdown">
 
-                            <a href="{{ route('profiles.index') }}" class="dropdown-item">
-                                <i class="fa-solid fa-user-tie mx-1"></i> Profile
+                            <a href="{{ route('profiles.index') }}" class="dropdown-item px-1">
+                                <i class="fa-solid fa-user-tie mx-2"></i> Profile
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item px-1" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                <i class="fa-solid fa-right-from-bracket mx-1"></i>{{ __('Logout') }}
+                                <i class="fa-solid fa-right-from-bracket mx-2"></i>{{ __('Logout') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

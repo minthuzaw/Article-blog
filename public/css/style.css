@@ -21,3 +21,10 @@ body {
 .bg-green {
     background-color: #1DC9A1;
 }
+
+/*nav-bar*/
+.dropdown-menu {
+    min-width: 7rem !important;
+    top: 80% !important;
+    right: 8px !important;
+}
