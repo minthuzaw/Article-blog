@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -36,10 +35,11 @@ class ProfileController extends Controller
             $attributes['profile'] = $this->imageSave($request->file('profile'));
         }
         $profile->update($attributes);
+
         return redirect()->route('profiles.index')->with('success', 'Profile updated successfully!');
     }
 
-    public function imageSave($file)
+    public function imageSave($file): string
     {
         $name = uniqid().'_'.$file->getClientOriginalName();
         $file->move(public_path('images/'), $name);

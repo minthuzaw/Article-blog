@@ -70,14 +70,14 @@ class AuthController extends Controller
                         'user' => $user,
                     ],
                 ]);
-            } else {
-                return response()->json([
-                    'status' => 422,
-                    'data' => [
-                        'message' => 'Wrong Credentials',
-                    ],
-                ]);
             }
+
+            return response()->json([
+                'status' => 422,
+                'data' => [
+                    'message' => 'Wrong Credentials',
+                ],
+            ]);
         } else {
             return response()->json([
                 'status' => 422,

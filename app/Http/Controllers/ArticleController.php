@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -39,6 +38,7 @@ class ArticleController extends Controller
         $articles = $request->validated();
         $articles['user_id'] = Auth::id();
         Article::create($articles);
+
         return redirect()->route('articles.index')->with('success', 'Article created successfully!');
     }
 
