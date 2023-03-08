@@ -16,20 +16,20 @@
                 <li class="nav-item">
                     <a class="nav-link text-info" href="{{ route('articles.index') }}">Articles</a>
                 </li>
-                @auth()
-                    <li class="nav-item">
-                        <a class="nav-link text-success"
-                           href="{{ route('articles.create') }}">
-                            + Add Article
-                        </a>
-                    </li>
-                @endauth
-
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
+                @auth()
+                    <li class="nav-item mt-1">
+                        <a class="btn btn-blue nav-link"
+                           href="{{ route('articles.create') }}">
+                            Add Article
+                        </a>
+                    </li>
+                @endauth
+
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
