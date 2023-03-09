@@ -1,13 +1,13 @@
 /*primary*/
 .btn-blue {
-    background-color: #4DB2E3;
+    background-color: #3d83ee;
     color: #ffffff;
-    border-color: #52c1f7;
+    border-color: #4e90f6;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
 }
 
 .btn-blue:hover {
-    background-color: #70ccf9 !important;
+    background-color: #46b5ec !important;
     color: #ffffff !important;
     cursor: pointer;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 20%);

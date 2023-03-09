@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-    <div class="container mt-3">
+    <div class="container">
         @if(session('info'))
             <div class="alert alert-info alert-dismissible fade show">
                 {{ session('info') }}
@@ -14,8 +14,24 @@
             </div>
         @endif
 
-        <h2 class="color-blue text-center mb-3">Dream Collector's <span
-                class="text-black semi-bold-600">Articles</span></h2>
+        {{--heading--}}
+        <div class="heading-text mt-2">
+            <span class="gradient-text text-center mb-3">Dream Collector's </span>
+            <span class="text-black semi-bold-600">Articles</span>
+        </div>
+
+        {{--search--}}
+        <div class="row height d-flex justify-content-center align-items-center mb-3">
+            <div class="col-md-8">
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Blog Search ... ">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+
+        {{--blog card--}}
         <div class="row">
             @foreach($articles as $article)
                 <div class="col-md-6 col-sm-2 col-lg-3 mb-4">
