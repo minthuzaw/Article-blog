@@ -33,6 +33,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'bob@gmail.com',
         ]);
 
+//        Article::disableSearchSyncing();
+//        $this->call(Article::factory()->count(20)->create());
+//        Article::all()->searchable();
+//        Article::enableSearchSyncing();
+
         Article::factory()->count(20)->create();
         Category::factory()->count(5)->create();
         Comment::factory()->count(40)->create();
