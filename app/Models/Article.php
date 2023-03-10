@@ -4,25 +4,45 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $guarded = [];
 
-    public function category()
+    public function category(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
+    protected $with = ['comments', 'user', 'category']; //solve N+1
+
+    //query scope for search
+    public function scopeFilter($query, array $filters)
+    {
+        $search = $filters['search'] ?? false;
+        $query->when($search,
+            function ($query) use ($search) {
+                return $query->when($search, function ($query, $search) {
+                    return $query
+                        ->where('title', 'like', '%' . $search . '%')
+                        ->orWhere('body', 'like', '%' . $search . '%');
+                });
+            }
+        );
     }
 }

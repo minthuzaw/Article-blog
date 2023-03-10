@@ -41,12 +41,16 @@ body {
     --tw-text-opacity: 1;
     color: rgb(248 113 113 / var(--tw-text-opacity));
 }
+
 .bg-green {
     background-color: #1DC9A1;
 }
 
-.bg-blue {
-    background-color: #4DB2E3;
+.category {
+    font-size:12px;
+    border: 1px solid #4DB2E3;
+    color: #53c1f6;
+    font-weight: 500;
 }
 
 .color-blue {
@@ -77,9 +81,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .heading-text {
-    font-family: "Archivo Black", sans-serif !important;
+    font-family: "Open Sans", sans-serif !important;
     /*line-height: 2.3;*/
-    font-weight: 650;
+    font-weight: 520;
     font-size: 40px;
     text-align: center;
     display: block;
@@ -171,6 +175,7 @@ h1, h2, h3, h4, h5, h6 {
     text-indent: 25px;
     border: 2px solid #d6d4d4;
 }
+
 .search input:focus {
     box-shadow: none;
     border: 2px solid blue;

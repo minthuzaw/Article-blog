@@ -4,10 +4,17 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+//just testing algolia with laravel scout
+Route::get('search', function() {
+    $query = 't'; // <-- Change the query for testing.
+    return Article::search($query)->get();
+});
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('/articles', ArticleController::class)->except(['edit', 'update']);

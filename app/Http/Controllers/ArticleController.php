@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         //->inRandomOrder()
-        $articles = Article::query()->orderBy('created_at')->paginate(12);
+        $articles = Article::latest()->filter(request(['search']))->paginate(12)->withQueryString();
 
         return view('articles.index', compact('articles'));
     }

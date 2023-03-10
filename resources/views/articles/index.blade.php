@@ -14,19 +14,21 @@
             </div>
         @endif
 
-        {{--heading--}}
-        <div class="heading-text mt-2">
-            <span class="gradient-text text-center mb-3">Dream Collector's </span>
-            <span class="text-black semi-bold-600">Articles</span>
-        </div>
+        <x-blog-home-screen-heading/>
 
         {{--search--}}
         <div class="row height d-flex justify-content-center align-items-center mb-3">
             <div class="col-md-8">
                 <div class="search">
                     <i class="fa fa-search"></i>
-                    <input type="text" class="form-control" placeholder="Blog Search ... ">
-                    <button class="btn btn-primary">Search</button>
+                    <form method="GET" action="/articles/">
+                        <input type="text"
+                               name="search"
+                               class="form-control"
+                               placeholder="Find something... "
+                               value="{{request('search')}}">
+                        <button class="btn btn-primary">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -40,10 +42,11 @@
                             <img src="https://picsum.photos/200/200?random={{ $article->id }}"
                                  class="card-img-top rounded-4">
                             <div class="card-body">
-                                <h5 class="card-title text-truncate">{{ $article->title }}</h5>
-                                <span class="text-muted">{{ $article->created_at->diffForHumans() }}</span>
+                                <span
+                                    class="category px-2 py-1 rounded-5 text-uppercase">{{ $article->category->name }}</span>
+                                <h5 class="card-title text-truncate mt-2">{{ $article->title }}</h5>
+                                <span class="text-muted">Published {{ $article->created_at->diffForHumans() }}</span>
                                 <p class="card-text line-clamp-2">{{ $article->body }}</p>
-                                <span class="badge bg-blue" style="font-size:14px">{{ $article->category->name }}</span>
                             </div>
                         </div>
                     </a>
