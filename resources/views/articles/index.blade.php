@@ -27,7 +27,7 @@
                                class="form-control"
                                placeholder="Find something... "
                                value="{{request('search')}}">
-                        <button class="btn btn-primary">Search</button>
+{{--                        <button class="btn btn-primary">Search</button>--}}
                     </form>
                 </div>
             </div>

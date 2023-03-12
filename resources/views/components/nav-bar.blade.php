@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('logos/idea-logo.png') }}" alt="logo" width="30px">
@@ -14,8 +14,10 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link gradient-text p-0" href="{{ route('articles.index') }}"><h5 class="m-0">
-                            Articles</h5></a>
+                    <a class="nav-link p-0"
+                       href="{{ route('articles.index') }}">
+                        <h5 class="m-0 heading-color">Articles</h5>
+                    </a>
                 </li>
             </ul>
 
@@ -46,7 +48,7 @@
                 @else
                     <li class="nav-item dropdown">
                         {{--class ="dropdown-toggle" --}}
-                        <a id="navbarDropdown" class="nav-link shadow rounded-circle p-0" href="#" role="button"
+                        <a id="navbarDropdown" class="nav-link shadow-md p-lg-0" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img
                                 src="{{ Auth::user()->profile ? config('app.url').'/images/'.Auth::user()->profile : 'https://ui-avatars.com/api/?name=' . Auth::user()->name }}"

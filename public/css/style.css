@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: #e7e6e6;
+    background-color: #D3E1E2;
 }
 
 /*pagination*/
@@ -19,8 +19,10 @@ body {
 .page-link.active, .active > .page-link {
     z-index: 3;
     color: #ffffff !important;
-    background-color: #4DB2E3 !important;
-    border-color: #4DB2E3 !important
+    background-color: #407C87 !important;
+    border-color: #407C87 !important;
+    /*background-color: #4DB2E3 !important;*/
+    /*border-color: #4DB2E3 !important;*/
     /*background-color: #1DC9A1 !important;*/
     /*border-color: #1DC9A1 !important;*/
 }
@@ -33,7 +35,7 @@ body {
 }
 
 .page-link:hover {
-    background-color: #4DB2E3;
+    background-color: #A5DBDD;
     color: #fff !important;
 }
 
@@ -47,7 +49,7 @@ body {
 }
 
 .category {
-    font-size:12px;
+    font-size: 12px;
     border: 1px solid #4DB2E3;
     color: #53c1f6;
     font-weight: 500;
@@ -58,6 +60,15 @@ body {
 }
 
 /*nav-bar*/
+.navbar {
+    background-color: #EEF1F6 !important;
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    width: 100%; /* Full width */
+    display: block;
+    transition: top 0.1s !important; /* Transition effect when sliding down (and up) */
+}
+
 .dropdown-menu {
     border-radius: 4px !important;
     min-width: 8rem !important;
@@ -83,13 +94,17 @@ h1, h2, h3, h4, h5, h6 {
 .heading-text {
     font-family: "Open Sans", sans-serif !important;
     /*line-height: 2.3;*/
-    font-weight: 520;
+    font-weight: 550;
     font-size: 40px;
     text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+    margin-top: 3.7rem !important;
+}
+.heading-color {
+    color: #407C87 !important;
 }
 
 /*gradient color*/

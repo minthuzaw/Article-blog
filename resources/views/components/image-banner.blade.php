@@ -68,7 +68,7 @@
 
                 </div>
             </div>
-            <a class="carousel-control-prev text-decoration-none" href="#carouselExampleIndicators" role="button"
+            <a class="carousel-control-prev text-decoration-none" href="{{ route('articles.index') }}" role="button"
                data-bs-slide="prev">
                 <i class='bx bx-chevron-left'></i>
                 <span class="visually-hidden">Previous</span>
