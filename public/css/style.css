@@ -62,10 +62,10 @@ body {
 /*nav-bar*/
 .navbar {
     background-color: #EEF1F6 !important;
-    position: fixed; /* Make it stick/fixed */
-    top: 0; /* Stay on top */
-    width: 100%; /* Full width */
-    display: block;
+    /*position: fixed; !* Make it stick/fixed *!*/
+    /*top: 0; !* Stay on top *!*/
+    /*width: 100%; !* Full width *!*/
+    /*display: block;*/
     transition: top 0.1s !important; /* Transition effect when sliding down (and up) */
 }
 
@@ -101,7 +101,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-    margin-top: 3.7rem !important;
 }
 .heading-color {
     color: #407C87 !important;
