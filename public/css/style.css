@@ -60,6 +60,11 @@ body {
 }
 
 /*nav-bar*/
+.navbar-toggler:focus {
+    border: solid black 1px !important;
+    box-shadow: 0 0 0 !important;
+}
+
 .navbar {
     background-color: #EEF1F6 !important;
     /*position: fixed; !* Make it stick/fixed *!*/
@@ -102,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
     cursor: pointer;
 }
+
 .heading-color {
     color: #407C87 !important;
 }
@@ -209,4 +215,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 100px;
     background: #62a2f6;
     border: #62a2f6;
+}
+
+.bg-gray-100 {
+    background-color: rgb(224, 226, 231) !important;
 }
