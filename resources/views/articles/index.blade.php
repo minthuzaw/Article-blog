@@ -24,7 +24,7 @@
                 <div class="col-md-6 col-sm-2 col-lg-3 mb-4">
                     <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none text-black">
                         <div class="card shadow rounded-4 border-0">
-                            <img src="{{ $article->image ? 
+                            <img src="{{ $article->image ?
                                         config('app.url').'/images/'.$article->image :
                                         'https://picsum.photos/200/200?random=' . $article->id}}"
                                  class="card-img-top rounded-4 w-full"
