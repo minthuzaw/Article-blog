@@ -67,3 +67,24 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+/*for article image add*/
+.image {
+    right: 13px !important;
+    top: 1px !important;
+}
+
+.image-label {
+    width: 130px !important;
+    height: 129px !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    /*background: #e3e2e2 !important;*/
+}
+
+.image-label:after {
+    content: "\2b" !important;
+    font-size: 50px;
+    top: 1px !important;
+    color: transparent !important;
+}

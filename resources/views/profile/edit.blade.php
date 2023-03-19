@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@section('css-content')
-    <link rel="stylesheet" href="{{ asset('css/edit-profile.css') }}">
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center pt-3">
@@ -135,21 +131,6 @@
 
 @push('js-content')
     <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-                    $('#imagePreview').hide();
-                    $('#imagePreview').fadeIn(650);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imageUpload").change(function () {
-            readURL(this);
-        });
 
         $(document).ready(function () {
             @if($errors->any())
@@ -172,7 +153,7 @@
 
             if (type !== "password") {
                 this.classList.remove("fa-eye", "toggle-eye");
-                this.classList.add("fa-eye-slash" , "toggle-eye-slash");
+                this.classList.add("fa-eye-slash", "toggle-eye-slash");
             } else {
                 this.classList.remove("fa-eye-slash", "toggle-eye-slash");
                 this.classList.add("fa-eye", "toggle-eye");
@@ -188,7 +169,7 @@
 
             if (confirm_type !== "password") {
                 this.classList.remove("fa-eye", "toggle-eye");
-                this.classList.add("fa-eye-slash" , "toggle-eye-slash");
+                this.classList.add("fa-eye-slash", "toggle-eye-slash");
             } else {
                 this.classList.remove("fa-eye-slash", "toggle-eye-slash");
                 this.classList.add("fa-eye", "toggle-eye");

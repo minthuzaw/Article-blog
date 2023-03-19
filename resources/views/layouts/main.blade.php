@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('favicon/blog.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon.png') }}">
     <title>{{ config('app.name', 'Blog') }}</title>
 
     <!-- Scripts -->
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/edit-profile.css') }}">
     @yield('css-content')
 </head>
 <body>
@@ -70,6 +71,8 @@
 </div>
 
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+<script src="{{ asset('js/preview-img.js') }}"></script>
 @stack('js-content')
 </body>
 </html>

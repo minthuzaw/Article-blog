@@ -55,7 +55,8 @@ body {
     font-weight: 500;
 }
 
-.color-blue {
+.color-green {
+    color: #29d8c5;
     /*color: linear-gradient(#ACB6E5, #86FDE8);*/
 }
 

@@ -3,7 +3,7 @@
 </a>
 
 @auth()
-    <a href="{{ route('articles.create') }}" class="dropdown-item py-2 d-lg-none d-md-none">
+    <a href="{{ route('articles.create') }}" class="dropdown-item py-2 d-lg-none d-md-none color-green">
         <i class="fa fa-square-plus mx-2"></i> Add Article
     </a>
 @endauth

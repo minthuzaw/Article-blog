@@ -17,6 +17,8 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
+            $table->string('image')->nullable();
+            $table->boolean('carousel')->default(0);
             $table->integer('category_id');
             $table->unsignedBigInteger('user_id')->constrained();
             $table->foreign('user_id')
