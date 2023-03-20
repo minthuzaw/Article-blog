@@ -37,6 +37,7 @@ class ProfileController extends Controller
             $attributes['profile'] = ImageSave::imageSave($request->file('profile'));
         }
         $profile->update($attributes);
+
         return redirect()->route('profiles.index')->with('success', 'Profile updated successfully!');
     }
 }
