@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('favicon/blog.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon.png') }}">
     <title>{{ config('app.name', 'Blog') }}</title>
 
     <!-- Scripts -->
@@ -30,7 +30,7 @@
 <body>
 <div id="app">
 
-<!-- Messenger Chat Plugin Code -->
+    <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
@@ -38,27 +38,28 @@
     </div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "1994245577329999");
-      chatbox.setAttribute("attribution", "biz_inbox");
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "1994245577329999");
+        chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v15.0'
-        });
-      };
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v15.0'
+            });
+        };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <!--nav-bar-->
@@ -79,37 +80,22 @@
 
 </div>
 
-<script>
-    //Get the button
-    let mybutton = document.getElementById("btn-back-to-top");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-        ) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    mybutton.addEventListener("click", backToTop);
-
-    function backToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
-
+<script src="{{ asset('js/btn-back-to-top.js') }}"></script>
 <script src="{{ asset('js/isotope.pkgd.js') }}"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 @stack('js-content')
+{{--<script>--}}
+{{--    /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */--}}
+{{--    var prevScrollpos = window.pageYOffset;--}}
+{{--    window.onscroll = function () {--}}
+{{--        var currentScrollPos = window.pageYOffset;--}}
+{{--        if (prevScrollpos > currentScrollPos) {--}}
+{{--            document.getElementById("navbar").style.top = "0";--}}
+{{--        } else {--}}
+{{--            document.getElementById("navbar").style.top = "-60px";--}}
+{{--        }--}}
+{{--        prevScrollpos = currentScrollPos;--}}
+{{--    }--}}
+{{--</script>--}}
 </body>
 </html>

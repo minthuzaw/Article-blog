@@ -3,11 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use App\Models\Category;
 use App\Models\Comment;
-use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,28 +15,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-        ]);
-        User::factory()->create([
-            'name' => 'Alice',
-            'email' => 'alice@gmail.com',
-        ]);
-        User::factory()->create([
-            'name' => 'Bob',
-            'email' => 'bob@gmail.com',
-        ]);
+        /*        Article::disableSearchSyncing();
+                $this->call(Article::factory()->count(20)->create());
+                Article::all()->searchable();
+                Article::enableSearchSyncing();*/
 
-//        Article::disableSearchSyncing();
-//        $this->call(Article::factory()->count(20)->create());
-//        Article::all()->searchable();
-//        Article::enableSearchSyncing();
+        if (app()->environment() === 'production') {
+            $this->call([AdminSeeder::class,CategorySeeder::class]);
+        } else {
+            $this->call([
+                AdminSeeder::class,
+                CategorySeeder::class,
+                UserSeeder::class,
+                ArticlesSeeder::class,
+                CommentsSeeder::class,
+            ]);
+        }
 
-        Article::factory()->count(20)->create();
-        Category::factory()->count(5)->create();
-        Comment::factory()->count(40)->create();
     }
 }

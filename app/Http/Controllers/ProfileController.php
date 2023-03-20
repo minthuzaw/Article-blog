@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ImageSave;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -32,18 +33,11 @@ class ProfileController extends Controller
             unset($attributes['password']);
         }
         if ($request->file('profile')) {
-            $attributes['profile'] = $this->imageSave($request->file('profile'));
+            //$this->imageSave($request->file('profile'));
+            $attributes['profile'] = ImageSave::imageSave($request->file('profile'));
         }
         $profile->update($attributes);
 
         return redirect()->route('profiles.index')->with('success', 'Profile updated successfully!');
-    }
-
-    public function imageSave($file): string
-    {
-        $name = uniqid().'_'.$file->getClientOriginalName();
-        $file->move(public_path('images/'), $name);
-
-        return $name;
     }
 }

@@ -16,22 +16,7 @@
 
         <x-blog-home-screen-heading/>
 
-        {{--search--}}
-        <div class="row height d-flex justify-content-center align-items-center mb-3">
-            <div class="col-md-8">
-                <div class="search">
-                    <i class="fa fa-search"></i>
-                    <form method="GET" action="/articles/">
-                        <input type="text"
-                               name="search"
-                               class="form-control"
-                               placeholder="Find something... "
-                               value="{{request('search')}}">
-                        <button class="btn btn-primary">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <x-search/>
 
         {{--blog card--}}
         <div class="row">
@@ -39,8 +24,12 @@
                 <div class="col-md-6 col-sm-2 col-lg-3 mb-4">
                     <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none text-black">
                         <div class="card shadow rounded-4 border-0">
-                            <img src="https://picsum.photos/200/200?random={{ $article->id }}"
-                                 class="card-img-top rounded-4">
+                            <img src="{{ $article->image ?
+                                        config('app.url').'/images/'.$article->image :
+                                        'https://picsum.photos/200/200?random=' . $article->id}}"
+                                 class="card-img-top rounded-4 w-full"
+                                 style="height: 300px;"
+                            >
                             <div class="card-body">
                                 <span
                                     class="category px-2 py-1 rounded-5 text-uppercase">{{ $article->category->name }}</span>
