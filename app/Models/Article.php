@@ -29,7 +29,7 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
-    protected $with = ['comments', 'user', 'category']; //solve N+1
+    protected $with = ['category']; //solve N+1
 
     //query scope for search
     public function scopeFilter($query, array $filters)
