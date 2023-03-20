@@ -41,7 +41,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Body</label> <span class="text-danger">*</span>
-                            <textarea id="body" name="body" class="form-control" placeholder="Something ... "></textarea>
+                            <textarea spellcheck="true" id="body" name="body" class="form-control" placeholder="Something ... "></textarea>
                         </div>
                         <div class="mb-3">
                             <label>Category</label> <span class="text-danger">*</span>
