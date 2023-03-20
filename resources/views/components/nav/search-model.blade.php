@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn bg-gray-100 d-none d-lg-block d-md-block" data-bs-toggle="modal"
+<button type="button" class="btn bg-gray-100 d-none d-lg-block d-md-block mt-1" data-bs-toggle="modal"
         data-bs-target="#exampleModal">
     <i class="fa fa-search fa-lg"></i>
 </button>

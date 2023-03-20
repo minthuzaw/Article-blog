@@ -6,7 +6,6 @@ use App\Helpers\ImageSave;
 use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -20,7 +19,6 @@ class ArticleController extends Controller
     {
         //->inRandomOrder()
         $articles = Article::latest()->filter(request(['search']))->paginate(12)->withQueryString();
-
         return view('articles.index', compact('articles'));
     }
 
