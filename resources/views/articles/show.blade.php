@@ -29,7 +29,7 @@
                     {{ $article->created_at->diffForHumans() }}
                     Category: <span class="badge bg-green">{{ $article->category->name }}</span>
                 </div>
-                <p class="card-text">{{ $article->body }}</p>
+                <p class="card-text">{!! $article->body !!}</p>
 
 
             </div>

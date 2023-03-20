@@ -41,7 +41,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Body</label> <span class="text-danger">*</span>
-                            <textarea name="body" class="form-control" rows="5"></textarea>
+                            <textarea id="body" name="body" class="form-control" placeholder="Something ... "></textarea>
                         </div>
                         <div class="mb-3">
                             <label>Category</label> <span class="text-danger">*</span>
@@ -62,24 +62,3 @@
         </div>
 
 @endsection
-
-        @push('js-content')
-            <script>
-                function readURL(input) {
-                    if (input.files && input.files[0]) {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-                            $('#imagePreview').hide();
-                            $('#imagePreview').fadeIn(650);
-                        }
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                }
-
-                $("#imageUpload").change(function () {
-                    readURL(this);
-                });
-
-            </script>
-    @endpush

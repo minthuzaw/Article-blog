@@ -28,14 +28,16 @@
                                         config('app.url').'/images/'.$article->image :
                                         'https://picsum.photos/200/200?random=' . $article->id}}"
                                  class="card-img-top rounded-4 w-full"
-                                 style="height: 300px;"
+                                 style="height: 350px;"
                             >
                             <div class="card-body">
                                 <span
                                     class="category px-2 py-1 rounded-5 text-uppercase">{{ $article->category->name }}</span>
                                 <h5 class="card-title text-truncate mt-2">{{ $article->title }}</h5>
                                 <span class="text-muted">Published {{ $article->created_at->diffForHumans() }}</span>
-                                <p class="card-text line-clamp-2">{{ $article->body }}</p>
+                                <span class="line-clamp-2 card-text">
+                                    {!! $article->body !!}
+                                </span>
                             </div>
                         </div>
                     </a>
