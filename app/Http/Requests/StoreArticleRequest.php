@@ -24,10 +24,10 @@ class StoreArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|max:50',
             'body' => 'required',
             'category_id' => 'required',
-            'image' => 'nullable',
+            'image' => 'required|image',
             'carousel' => 'nullable',
             'except' => 'nullable'
         ];

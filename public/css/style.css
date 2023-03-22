@@ -221,3 +221,8 @@ h1, h2, h3, h4, h5, h6 {
 .bg-gray-100 {
     background-color: rgb(224, 226, 231) !important;
 }
+
+/*tiny mac*/
+.tox {
+    height: 300px !important;
+}
