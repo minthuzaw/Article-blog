@@ -6,7 +6,7 @@ use App\Helpers\ImageSave;
 use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -37,12 +37,14 @@ class ArticleController extends Controller
     public function store(StoreArticleRequest $request)
     {
         $article = $request->validated();
-        $article['user_id'] = Auth::id();
+        $article['user_id'] = auth()->id();
+        $article['slug']= Str::slug($request->get('title'), "-");
+
         if ($request->file('image')) {
             $article['image'] = ImageSave::imageSave($request->file('image'));
         }
         Article::create($article);
-        return redirect()->route('articles.index')->with('success', 'Article created successfully!');
+        return redirect()->route('articles.index')->with('success', 'Your article created successfully!');
     }
 
     public function destroy(Article $article)

@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("content")
     <div class="container">
-        @if(session('info'))
+       {{-- @if(session('info'))
             <div class="alert alert-info alert-dismissible fade show">
                 {{ session('info') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -12,7 +12,7 @@
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif
+        @endif--}}
 
         <x-blog-home-screen-heading/>
 
@@ -22,7 +22,7 @@
         <div class="row">
             @foreach($articles as $article)
                 <div class="col-md-6 col-sm-2 col-lg-3 mb-4">
-                    <a href="{{ route('articles.show', $article->id) }}" class="text-decoration-none text-black">
+                    <a href="{{ route('articles.slug.show', $article->slug) }}" class="text-decoration-none text-black">
                         <div class="card shadow rounded-4 border-0">
                             <img src="{{ $article->image ?
                                         config('app.url').'/images/'.$article->image :

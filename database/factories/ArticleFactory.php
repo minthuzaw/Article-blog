@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class ArticleFactory extends Factory
 {
@@ -12,12 +13,15 @@ class ArticleFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         Article::truncate();
 
+        $title = $this->faker->sentence;
+        $slug = Str::slug($title);
         return [
-            'title' => $this->faker->sentence,
+            'title' => $title,
+            'slug' => $slug,
             'body' => $this->faker->paragraph,
             'category_id' => rand(1, 5),
             'user_id' => rand(1, 2),
