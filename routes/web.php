@@ -17,8 +17,12 @@ Route::get('search', function() {
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('articles/{article:slug}', [ArticleController::class, 'show'])->name('articles.slug.show');
+    Route::get('/articles', [ArticleController::class,'index'])->name('articles.index');
+
     Route::resource('/articles', ArticleController::class)->except(['show', 'edit', 'update']);
+
+    Route::get('articles/{article:slug}', [ArticleController::class, 'show'])->name('articles.slug.show');
+
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
     Route::delete('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);

@@ -36,11 +36,11 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown me-3">
+                    <li class="nav-item dropdown">
                         <x-nav.profile/>
                     </li>
 
-                    <li class="nav-item dropdown me-1">
+                    <li class="nav-item dropdown">
                         <x-nav.search-model/>
                     </li>
                 @endguest

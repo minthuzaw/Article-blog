@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row min-vw-100">
-            <div class="col-md-4 mx-auto">
+            <div class="col-md-6 mx-auto col-lg-6 col-12">
                 @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
