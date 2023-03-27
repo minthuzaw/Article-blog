@@ -10,8 +10,6 @@ class ArticleFactory extends Factory
 {
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
     public function definition(): array
     {
@@ -19,13 +17,14 @@ class ArticleFactory extends Factory
 
         $title = $this->faker->sentence;
         $slug = Str::slug($title);
+
         return [
             'title' => $title,
             'slug' => $slug,
             'body' => $this->faker->paragraph,
             'category_id' => rand(1, 5),
             'user_id' => rand(1, 2),
-//            'image' => 'https://picsum.photos/200/200?random=' . rand(1,1000)
+            //            'image' => 'https://picsum.photos/200/200?random=' . rand(1,1000)
         ];
     }
 }

@@ -13,7 +13,6 @@ class tinymceConfig extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

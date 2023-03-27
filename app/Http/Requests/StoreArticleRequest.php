@@ -29,7 +29,7 @@ class StoreArticleRequest extends FormRequest
             'category_id' => 'required',
             'image' => 'required|image',
             'carousel' => 'nullable',
-            'except' => 'nullable'
+            'except' => 'nullable',
         ];
     }
 }

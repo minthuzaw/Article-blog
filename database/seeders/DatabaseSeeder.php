@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +20,7 @@ class DatabaseSeeder extends Seeder
                 Article::enableSearchSyncing();*/
 
         if (app()->environment() === 'production') {
-            $this->call([AdminSeeder::class,CategorySeeder::class]);
+            $this->call([AdminSeeder::class, CategorySeeder::class]);
         } else {
             $this->call([
                 AdminSeeder::class,
@@ -31,6 +30,5 @@ class DatabaseSeeder extends Seeder
                 CommentsSeeder::class,
             ]);
         }
-
     }
 }

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
 {
     use ApiResponseHelpers;
+
     /**
      * Index
      *
@@ -19,6 +20,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::orderBy('id', 'desc')->get();
+
         return $this->respondWithSuccess($articles);
         /*$articles = Article::orderBy('id', 'desc')->get();
 

@@ -14,6 +14,7 @@ class Article extends Model
 
     protected $guarded = [];
 
+    protected $with = ['category']; //solve N+1
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
@@ -28,19 +29,17 @@ class Article extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-    protected $with = ['category']; //solve N+1
-
     //query scope for search
     public function scopeFilter($query, array $filters)
     {
         $search = $filters['search'] ?? false;
-        $query->when($search,
+        $query->when(
+            $search,
             function ($query) use ($search) {
                 return $query->when($search, function ($query, $search) {
                     return $query
-                        ->where('title', 'like', '%' . $search . '%')
-                        ->orWhere('body', 'like', '%' . $search . '%');
+                        ->where('title', 'like', '%'.$search.'%')
+                        ->orWhere('body', 'like', '%'.$search.'%');
                 });
             }
         );

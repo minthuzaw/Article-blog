@@ -28,10 +28,8 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
         $attributes['password'] = bcrypt($request->password);
-
         $user = User::create($attributes);
         $token = $user->createToken('Registering User')->accessToken;
-
         return response()->json([
             'status' => 200,
             'data' => [
@@ -40,7 +38,6 @@ class AuthController extends Controller
             ],
         ]);
     }
-
     /**
      * Login
      *
@@ -57,12 +54,10 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
         $user = User::where('email', $attributes['email'])->first();
         if ($user) {
             if (Hash::check($attributes['password'], $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-
                 return response()->json([
                     'status' => 200,
                     'data' => [
@@ -71,14 +66,6 @@ class AuthController extends Controller
                     ],
                 ]);
             }
-
-            return response()->json([
-                'status' => 422,
-                'data' => [
-                    'message' => 'Wrong Credentials',
-                ],
-            ]);
-        } else {
             return response()->json([
                 'status' => 422,
                 'data' => [
@@ -86,5 +73,11 @@ class AuthController extends Controller
                 ],
             ]);
         }
+        return response()->json([
+            'status' => 422,
+            'data' => [
+                'message' => 'Wrong Credentials',
+            ],
+        ]);
     }
 }

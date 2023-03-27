@@ -11,21 +11,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 //just testing algolia with laravel scout
-Route::get('search', function() {
+Route::get('search', function () {
     $query = 't'; // <-- Change the query for testing.
+
     return Article::search($query)->get();
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/articles', [ArticleController::class,'index'])->name('articles.index');
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 
     Route::resource('/articles', ArticleController::class)->except(['show', 'edit', 'update']);
 
     Route::get('articles/{article:slug}', [ArticleController::class, 'show'])->name('articles.slug.show');
 
-    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-    Route::delete('/comments/delete/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-    Route::resource('/profiles', ProfileController::class)->except(['show', 'store', 'create', 'destroy']);
+    Route::group(['prefix' => 'comments'], function () {
+        Route::post('/', [CommentController::class, 'store'])->name('comments.store');
+        Route::delete('/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    });
+
+    Route::resource('/profiles', ProfileController::class)
+        ->except(['show', 'store', 'create', 'destroy']);
 });
 
 Route::get('/2y$10$KMfnFfmsOTiehOIbJIyKesxrcvkqpl1aU9vlsqunTLcsgDug/{q}', [HomeController::class, 'qr'])->name('qr');
