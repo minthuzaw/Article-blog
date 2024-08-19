@@ -19,7 +19,7 @@ jobs:
       - name: setup env
         run: cp .env.example .env
       - name: Install Dependencies
-        run: composer install —-ignore-platform-req=ext-pcntl
+        run: composer install --ignore-platform-req=ext-pcntl
       - name: Run Tests
         run: php artisan test
 
