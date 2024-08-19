@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-Jobs:
+jobs:
   test:
     name: Testing before Deployment
     runs-on: ubuntu-latest
