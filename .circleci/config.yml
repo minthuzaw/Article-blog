@@ -11,6 +11,9 @@ jobs:
     steps:
       - checkout
       - php/install-packages
+      - run: 
+          name: Copy .env
+          run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - run:
           name: run php command
           command: php artisan key:generate
