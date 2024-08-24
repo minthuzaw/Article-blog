@@ -18,6 +18,10 @@ jobs:
           tools: composer:v2
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Run Test
+        run: php artisan test
       - name: Install Dependencies
         run: composer install --ignore-platform-req=ext-pcntl
 
