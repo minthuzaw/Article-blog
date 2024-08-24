@@ -11,32 +11,12 @@ jobs:
     steps:
       - checkout
       - php/install-packages
-      - run: 
+      - run:
           name: Copy .env
-          run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+          command: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - run:
           name: run php command
           command: php artisan key:generate
       - run:
           name: run tests
           command: php artisan test
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-      - run:
-          name: found github actions config
-          command: ':'
-workflows:
-  build-and-test:
-    jobs:
-      - test-php
-    # - deploy:
-    #     requires:
-    #       - test-php
-
