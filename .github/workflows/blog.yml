@@ -22,10 +22,8 @@ jobs:
         run: composer install --ignore-platform-req=ext-pcntl
       - name: Generate key
         run: php artisan key:generate
-      - name: Run Migration
-        run: php artisan migrate --force
       - name: Run Test
-        run: php artisan test
+        run: vendor/bin/phpunit
 
   deploy:
     name: Deploy to Production
