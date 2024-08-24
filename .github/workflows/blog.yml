@@ -23,7 +23,7 @@ jobs:
       - name: Generate key
         run: php artisan key:generate
       - name: Run Migration
-        run: vendor/bin/phpunit --migrate-configuration
+        run: php artisan migrate --force
       - name: Run Test
         run: php artisan test
 
