@@ -19,7 +19,7 @@ jobs:
           command: php artisan key:generate
       - run:
           name: run tests
-          command: vendor/bin/phpunit
+          command: vendor/bin/phpunit --migrate-configuration
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
